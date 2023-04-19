@@ -5,23 +5,30 @@ public class App{
 
     public static void main(String[] args) {
 
+
+        Scanner teclado = new Scanner(System.in);
+
+        double valor;
         //declaração
         ContaBancaria conta;
 
-        ContaBancaria conta2 = new ContaBancaria();
+        //ContaBancaria conta2 = new ContaBancaria();
 
         //instanciação ou alocação
-        conta = new ContaBancaria();
+        conta = new ContaBancaria("1234","345","Zé");
 
         //inicialização
-        conta.agencia = "1234";
-        conta.numero = "98765";
-        conta.nomeCliente = "Zé";
-        conta.saldo = 100.0;
+        /*conta.setAgencia("1234");
+        conta.setNumero("98765");
+        conta.setNomeCliente("Zé");
+        
+        conta.setSaldo(100.0);*/
 
         System.out.println(conta.verExtrato());
 
         conta.depositar(200.0);
+
+        conta.setNomeCliente("Maria");
 
         System.out.println(conta.verExtrato());
 
@@ -29,15 +36,30 @@ public class App{
         
         System.out.println(conta.verExtrato());
         System.out.println("#####");
+
+
+
+
         System.out.println(conta.sacar(-20));
         
         System.out.println(conta.verExtrato());
         System.out.println("#####");
-        System.out.println(conta.sacar(2000));
+
+        valor = 2000;
+        double saldo = conta.getSaldo();
+
+        if(valor < saldo){
+             System.out.println(conta.sacar(valor));
+        }
+
+
+        
         
         System.out.println(conta.verExtrato());
         System.out.println("#####");
 
+
+        teclado.close();
 
     }
 
